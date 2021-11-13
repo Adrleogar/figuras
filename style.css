@@ -1,6 +1,6 @@
 /**********************************************************************/
-/*  PROYECTO FIGURAS               */
-/*  EQUIPO Hungria                 */
+/*  PROYECTO FIGURAS              */
+/*  EQUIPO HUNGRIA                 */
 
 * {
   box-sizing: border-box;
@@ -16,13 +16,14 @@
   --color-sobre-primario: hsl(2, 100%, 100%);
   --color-secundario: hsl(2, 50%, 102%);
   --color-sobre-secundario: hsl(2, 0%, 0%);
+  --color-caja-final: rgb(214, 14, 14);
 
   --fuente-primaria: sans-serif;
   --fuente-secuendaria: sans-serif;
 
   /* Color y tamaño de las figuras */
-  --color-figuras: hsl(120, 84%, 52%);
-  --longitud-muestra: 100px;
+  --color-figuras: hsl(120, 42%, 42%);
+  --longitud-muestra: 5em;
 }
 
 /**********************************************************************/
@@ -54,7 +55,6 @@
   width: clamp(300px, 600px, 60%);
   margin: 1.5rem auto;
   border: 1px solid black;
-  
 }
 
 /**********************************************************************/
@@ -63,8 +63,8 @@
   /* El estilo del borde cambiará dinámicamente con JS 
      para ilustrar cuando una figura entra en el panel del patrón  */
   border: 1px solid var(--color-primario);
-  
-  
+   
+
   /* ======= COMPLETAR REGLA ====== */
   /* El panel del patrón se muestra centrado dentro del panel */
   /* Su dimensión admite albergar la figura patrón de forma holgada */
@@ -75,12 +75,26 @@
   padding: 10%;
 }
 
+.panel__patronFinal {
+  /* El estilo del borde cambiará dinámicamente con JS 
+     para ilustrar cuando una figura entra en el panel del patrón  */
+     border: 3px dashed var(--color-caja-final);
+
+     /* ======= COMPLETAR REGLA ====== */
+     /* El panel del patrón se muestra centrado dentro del panel */
+     /* Su dimensión admite albergar la figura patrón de forma holgada */
+     margin-left: 25%;
+     margin-top: 5%;
+     width: 50%;
+     height: 100%;
+     padding: 10%;
+}
+
 /**********************************************************************/
 
 .panel__alternativas {
   /* Las figuras se enmarcan para identificarlas como un grupo */
-  
-  size: var(--longitud-muestra);
+  /*border: 1px solid var(--color-primario);
 
   /* ======= COMPLETAR REGLA ====== */
   /* Las figuras del panel se muestran centradas */
@@ -91,22 +105,25 @@
 /**********************************************************************/
 
 .figura {
-  
+  max-width: 5px;
+  max-height: 5px;
   /* ======= COMPLETAR REGLA ====== */
-
+   
   /* Las figuras se enmarcan en cuadrados separados equidistantemente */
   /* ACLARACIONES:
        - Las figuras son definidas en HTML mediante elementos span
        - La dimensión se define en base a --logitud-muestra  */
 
-  padding: 2%;
+
 }
 
 .panel__patron .figura {
   /* La figura del patrón se muestra ligeramente transparente 
      para destacarla respecto de las del panel de alternativas */
   opacity: 50%;
-  position: relative;
+  margin: auto;
+
+
 }
 
 /**********************************************************************/
@@ -115,7 +132,7 @@
 
 .figura--sobrevolando {
   /* ======= COMPLETAR REGLA ====== */
-  border: 1px dashed black;
+  border: 2px dashed black; 
 }
 
 .figura--arrastrando {
@@ -127,17 +144,18 @@
 /* Formas que pueden adoptar las figuras         */
 
 .circulo {
+  
   border-radius: 50%;
   background-color: var(--color-figuras);
-
   --mitad: calc(var(--longitud-muestra) / 2);
-
+  
   border-left: var(--mitad) solid transparent;
   border-right: var(--mitad) solid transparent;
   border-bottom: var(--longitud-muestra) solid var(--color-figuras);
 }
 
 .triangulo {
+  
   --mitad: calc(var(--longitud-muestra) / 2);
 
   border-left: var(--mitad) solid transparent;
@@ -146,11 +164,11 @@
 }
 
 .hoja {
+  
   background-color: var(--color-figuras);
   border-radius: 0% 75%;
-
   --mitad: calc(var(--longitud-muestra) / 2);
-
+ 
   border-left: var(--mitad) solid transparent;
   border-right: var(--mitad) solid transparent;
   border-bottom: var(--longitud-muestra) solid var(--color-figuras);

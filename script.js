@@ -111,17 +111,18 @@ function ___dragEnd(e) {
   // si se hubiera cancelado la operación. 
   
   // Esta función elimina de la figura el estilo de clase figura--arrastrando 
-  // con el objetivo de que su aspecto vuelva a ser el original 
-
-
+  // con el objetivo de que su aspecto vuelva a ser el original
+  e.target.classList.remove("figura--arrastrando");
+  
 }
 
 function ___dragEnter(e) {
 
   // Esta función se limita a hacer notar que la figura arrastrada entra en la zona del patrón
-  // El efecto visual se consigue añadiendo al panelPatrón el estilo de clase figura--arrastrando 
-
-  
+  // El efecto visual se consigue añadiendo al panelPatrón el estilo de clase figura--arrastrando
+  if (e.target.id == "panelPatron") {
+    e.target.classList.add("figura--sobrevolando");
+  }
 
 }
 
@@ -150,7 +151,7 @@ function drop(e) {
 
 
   if (e.target.id == "panelPatron") {
-    e.target.classList.remove("figura--sobrevolando");
+    e.target.classList.add("figura--sobrevolando");
   }
 
   // Se recuperan:  
@@ -176,7 +177,11 @@ function drop(e) {
 
     // y (3) se modifica el aspecto del patrón para remarcar la coincidencia
 
-    ___modificaAspectoDelPatron(panelPatron); 
+    ___modificaAspectoDelPatron(panelPatron);
+  }else{
+    if (e.target.id == "panelPatron") {
+      e.target.classList.remove("figura--sobrevolando");
+    }
   }
 
   return false;
@@ -193,6 +198,8 @@ function ___modificaAspectoDelPatron(panelPatron){
   //   usar un borde discontinuo con un color llamativo
   //   alterar el color de fondo del patrón
   //   añadir una sombra al patrón
+  panelPatron.classList.remove("panel__patron");
+  panelPatron.classList.add("panel__patronFinal");
 
 
 }
