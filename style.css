@@ -52,42 +52,46 @@
 /**********************************************************************/
 
 .panel {
-  width: clamp(300px, 600px, 60%);
+
+  width: clamp(300px, 800px, 60%);
   margin: 1.5rem auto;
   border: 1px solid black;
 }
 
 /**********************************************************************/
-
+t
 .panel__patron {
   /* El estilo del borde cambiará dinámicamente con JS 
      para ilustrar cuando una figura entra en el panel del patrón  */
   border: 1px solid var(--color-primario);
    
-
-  /* ======= COMPLETAR REGLA ====== */
-  /* El panel del patrón se muestra centrado dentro del panel */
-  /* Su dimensión admite albergar la figura patrón de forma holgada */
-  margin-left: 25%;
-  margin-top: 5%;
-  width: 50%;
-  height: 100%;
-  padding: 10%;
+  margin:auto;
+  margin-top: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  
 }
 
 .panel__patronFinal {
   /* El estilo del borde cambiará dinámicamente con JS 
      para ilustrar cuando una figura entra en el panel del patrón  */
-     border: 3px dashed var(--color-caja-final);
+  border: 3px dashed var(--color-caja-final);
 
      /* ======= COMPLETAR REGLA ====== */
      /* El panel del patrón se muestra centrado dentro del panel */
      /* Su dimensión admite albergar la figura patrón de forma holgada */
-     margin-left: 25%;
-     margin-top: 5%;
-     width: 50%;
-     height: 100%;
-     padding: 10%;
+
+     width: 10em;
+     height: 10em;
+     display:block;
+     margin:auto;
+     margin-top: 1em;
+     padding-left: 2em;
+     padding-right: 2em;
+     padding-top: 3em;
+     padding-bottom: 3em;
 }
 
 /**********************************************************************/
@@ -98,32 +102,40 @@
 
   /* ======= COMPLETAR REGLA ====== */
   /* Las figuras del panel se muestran centradas */
-  padding: 20%;
+  padding-bottom: 15%;
+  padding-top: 5%;
+  margin-bottom: 5%;
+  margin-top: 2.5%;
   text-align: center;
 }
 
 /**********************************************************************/
 
 .figura {
+  
+  /* ======= COMPLETAR REGLA ====== */
+  
   max-width: 5px;
   max-height: 5px;
-  /* ======= COMPLETAR REGLA ====== */
-   
+  
+  
+  
   /* Las figuras se enmarcan en cuadrados separados equidistantemente */
+  
   /* ACLARACIONES:
        - Las figuras son definidas en HTML mediante elementos span
        - La dimensión se define en base a --logitud-muestra  */
-
-
+  margin: 2%;
+  size: var(--longitud-muestra);
 }
 
 .panel__patron .figura {
   /* La figura del patrón se muestra ligeramente transparente 
      para destacarla respecto de las del panel de alternativas */
   opacity: 50%;
-  margin: auto;
-
-
+  display:block;
+  margin:auto;
+  
 }
 
 /**********************************************************************/
@@ -144,7 +156,7 @@
 /* Formas que pueden adoptar las figuras         */
 
 .circulo {
-  
+
   border-radius: 50%;
   background-color: var(--color-figuras);
   --mitad: calc(var(--longitud-muestra) / 2);
@@ -155,6 +167,8 @@
 }
 
 .triangulo {
+
+ 
   
   --mitad: calc(var(--longitud-muestra) / 2);
 
@@ -164,6 +178,7 @@
 }
 
 .hoja {
+
   
   background-color: var(--color-figuras);
   border-radius: 0% 75%;
